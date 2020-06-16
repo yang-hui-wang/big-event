@@ -61,8 +61,12 @@ $(function () {
             },
         });
     });
+
+keyCode13('#form-reg','submit')
     //注册账户事件
     $('.links').on('click',function(){
         
     })
+
+
 });
