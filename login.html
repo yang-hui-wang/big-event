@@ -16,8 +16,8 @@
     <div class="layui-container header">
         <img src="./assets/images/logo.png">
     </div>
-    <!-- 表单部分 -->
-    <div class="form">
+    <!-- 登录表单部分 -->
+    <div class="form-1">
         <!-- 表单标题 -->
         <div class="title">
             <img src="./assets/images/login_title.png" alt="">
@@ -29,22 +29,58 @@
                 <i class="layui-icon layui-icon-username fonts" ></i>  
                 <input type="text" name="username"      
                  lay-verify="required|uname" placeholder="请输入用户名" autocomplete="off"
-                    class="layui-input">
+                    class="layui-input username">
             </div>
             <!-- 密码输入框 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-password fonts" ></i> 
                 <input type="password" name="password"  lay-verify="required|pwd" placeholder="请输入密码" autocomplete="off"
-                    class="layui-input">
+                    class="layui-input password">
             </div>
             <!-- 登录按钮 -->
             <!-- lay-submit 属性控制表单提交-->
             <button  lay-submit class="layui-btn layui-btn-normal layui-btn-fluid" lay-filter="formDemo">登录</button>
             <!-- 注册链接 -->
             <div class="links">
-                <a href="">去注册账号</a>
+                <a href="" id="link-1">去注册账号</a>
             </div>
         </form>
+    </div>
+    <!-- 注册表单部分 -->
+    <div class="form-2">
+          <!-- 表单标题 -->
+        <div class="title">
+            <img src="./assets/images/login_title.png" alt="">
+        </div>
+        <form class="layui-form" id="form-reg2" >
+            <!-- 用户名 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-username fonts" ></i>  
+                <input type="text" name="username"      
+                 lay-verify="required|" placeholder="请输入用户名" autocomplete="off"
+                    class="layui-input uname">
+            </div>
+            <!-- 密码 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-password fonts" ></i> 
+                <input type="password" name="password"  lay-verify="required|pwd" placeholder="请输入密码" autocomplete="off"
+                    class="layui-input pwod">
+            </div>
+            <!-- 密码 -->
+            <div class="layui-form-item">
+                <i class="layui-icon layui-icon-password fonts" ></i> 
+                <input type="password" name="password"  lay-verify="required|pwd" placeholder="确认密码" autocomplete="off"
+                    class="layui-input pwod">
+            </div>
+            <!-- 登录按钮 -->
+            <!-- lay-submit 属性控制表单提交-->
+            <button  lay-submit class="layui-btn layui-btn-normal layui-btn-fluid" lay-filter="formDemo">注册</button>
+            <!-- 去登录说 -->
+                <div class="links">
+                    <a href="" id="link-2">已有账号，去登录</a>
+                </div>
+        </form>
+
     </div>
 
     <script src="./assets/lib/jquery.js"></script>

@@ -9,11 +9,13 @@ html, body {
     padding-top: 20px;
 }
 
-.form {
+/* 登录区 */
+.form-1 {
     width: 400px;
     height: 310px;
     background-color: #ffffff;
     margin: 200px auto;
+    /* display: none; */
 }
 
 .title {
@@ -46,4 +48,13 @@ html, body {
     left: 10px;
     top: 10px;
     
+}
+
+/* 注册区 */
+.form-2 {
+    width: 400px;
+    height: 310px;
+    background-color: #ffffff;
+    margin: 200px auto;
+    display: none;
 }

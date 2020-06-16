@@ -38,7 +38,7 @@ $(function () {
         //阻止按钮默认跳转事件
         e.preventDefault();
         //快速获取表单输入域内容
-        var formData = $('.layui-form').serialize()
+        var formData = $(this).serialize()
         console.log(formData);
         // var username = $('.username').val().trim();
         // var password = $('.password').val().trim();
@@ -57,16 +57,60 @@ $(function () {
                 //登录成功,跳转页面到主页面
                 if (backData.status === 0) {
                     location.href = 'index.html'
+                    $('.username').val("")
+                    $('.password').val("")
                 };
             },
         });
     });
 
-keyCode13('#form-reg','submit')
+    keyCode13('#form-reg', 'submit')
     //注册账户事件
-    $('.links').on('click',function(){
-        
+    $('.links').on('click', function () {
+
     })
 
+    $('#link-1').on('click', function (e) {
+        e.preventDefault();
+        $('.form-2').show().prev().hide();
+    })
+
+    $('#link-2').on('click', function (e) {
+        e.preventDefault();
+        $('.form-2').hide().prev().show();
+    })
+
+    //注册事件
+    $('#form-reg2').on('submit', function (e) {
+        //阻止按钮默认跳转事件
+        e.preventDefault();
+        //快速获取表单输入域内容
+        var formData = $(this).serialize()
+        console.log(formData);
+        // var username = $('.username').val().trim();
+        // var password = $('.password').val().trim();
+        // console.log(username , password);
+        //发送ajax请求
+        $.ajax({
+            url: 'http://btapi.ehomespace.com/api/reguser',
+            type: 'post',
+            // dataType:'json',
+            data:/* {
+                username : username,
+                password : password
+            } */formData,
+            success: function (backData) {
+                console.log(backData);
+                //无论成功还是失败,都要提示
+                alert(backData.message)
+                //登录成功,跳转页面到主页面
+                if (backData.status === 0) {
+                    $('.form-2').hide().prev().show();
+                    $('.uname').val("")
+                    $('.pwod').val("")
+                };
+            },
+        });
+    });
 
 });
