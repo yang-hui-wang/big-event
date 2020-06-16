@@ -23,21 +23,24 @@
             <img src="./assets/images/login_title.png" alt="">
         </div>
         <!-- 表单区域 -->
-        <form class="layui-form" action="" >
+        <form class="layui-form" id="form-reg" >
             <!-- 用户名输入框 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-username fonts" ></i>  
-                <input type="text" name="title" lay-verify="required" placeholder="请输入用户名" autocomplete="off"
+                <input type="text" name="username"      
+                 lay-verify="required|uname" placeholder="请输入用户名" autocomplete="off"
                     class="layui-input">
             </div>
             <!-- 密码输入框 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-password fonts" ></i> 
-                <input type="password" name="title" lay-verify="required" placeholder="请输入密码" autocomplete="off"
+                <input type="password" name="password"  lay-verify="required|pwd" placeholder="请输入密码" autocomplete="off"
                     class="layui-input">
             </div>
             <!-- 登录按钮 -->
-            <button type="button" class="layui-btn layui-btn-normal layui-btn-fluid">登录</button>
+            <!-- lay-submit 属性控制表单提交-->
+            <button  lay-submit class="layui-btn layui-btn-normal layui-btn-fluid" lay-filter="formDemo">登录</button>
+            <!-- 注册链接 -->
             <div class="links">
                 <a href="">去注册账号</a>
             </div>
