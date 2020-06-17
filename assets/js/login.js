@@ -29,39 +29,29 @@ $(function () {
 
     //登录表单提交事件
     $('#form-reg').on('submit', function (e) {
-        //阻止按钮默认跳转事件
-        e.preventDefault();
-        //快速获取表单输入域内容
+        // 阻止表单默认提交行为
+        e.preventDefault()
+        // 获取表单输入域的用户名和密码
+        // username=asdf&password=asdffffff
         var formData = $(this).serialize()
-        console.log(formData);
-        // var username = $('.username').val().trim();
-        // var password = $('.password').val().trim();
-        // console.log(username , password);
-        //发送ajax请求
+        // 提交表单之前需要做表单验证，如果自己实现有点繁琐，所以可以借助LayUI实现
+
+        // 调用后台接口验证是否正确
         $.ajax({
-            url: 'http://ajax.frontend.itheima.net/api/login',
             type: 'post',
-            // dataType:'json',
-            data:/* {
-                username : username,
-                password : password
-            } */formData,
-            success: function (backData) {
-                console.log(backData);
-                //登录成功,跳转页面到主页面
-                if (backData.status === 0) {
-                    //把登录成功的标志存储在客户端
-                    localStorage.setItem('mytoken', 'backData.token')
-                    console.log(backData.token);
-                    //跳转到主页面
-                    location.href = 'index.html'
-                    $('.username').val("")
-                    $('.password').val("")
-                }else{
-                    layer.msg(backData.message)
-                };
-            },
-        });
+            url: 'http://ajax.frontend.itheima.net/api/login',
+            data: formData,
+            success: function (res) {
+                // 登录成功后，跳转到主页面
+                if (res.status === 0) {
+                    // 把登录成功的标志位存储在客户端
+                    localStorage.setItem('mytoken', res.token)
+                    // localStorage.removeItem('mytoken')
+                    // 跳转到主页面
+                    location.href = './index.html'
+                }
+            }
+        })
     });
 
     keyCode13('#form-reg', 'submit')
@@ -83,36 +73,27 @@ $(function () {
     //注册表单事件
     $('#form-reg2').on('submit', function (e) {
         //阻止按钮默认跳转事件
-        e.preventDefault();
-        //快速获取表单输入域内容
+        e.preventDefault()
+        // 获取表单数据(表单输入域必须提供name属性，name的值必须和接口文档要求一致)
         var formData = $(this).serialize()
-        console.log(formData);
-        // var username = $('.username').val().trim();
-        // var password = $('.password').val().trim();
-        // console.log(username , password);
-        //发送ajax请求
+        // 调用接口进行注册
         $.ajax({
-            url: 'http://btapi.ehomespace.com/api/reguser',
             type: 'post',
-            // dataType:'json',
-            data:/* {
-                username : username,
-                password : password
-            } */formData,
-            success: function (backData) {
-                console.log(backData);
-                if (backData.status === 0) {
-                    //登录成功,跳转页面到登录框
-                    $('.form-2').hide().prev().show();
-                    $('.uname').val("")
-                    $('.pwod').val("")
-                    //成功后进行提示
-                    layer.msg(backData.message)
+            url: 'http://ajax.frontend.itheima.net/api/reguser',
+            data: formData,
+            success: function (res) {
+                if (res.status === 0) {
+                    // 注册成功，显示登陆框
+                    $('#link-2').click()
+                    // 成功后进行提示
+                    layer.msg(res.message)
                 } else {
-                    //注册失败
-                    layer.msg(backData.message)
-                };
-            },
-        });
-    });
+                    // 注册失败
+                    // layer是一个独立的模块，默认可以直接使用
+                    layer.msg(res.message)
+                }
+            }
+        })
+    })
+
 });
