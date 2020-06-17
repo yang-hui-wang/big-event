@@ -69,13 +69,13 @@
             <!-- 密码 -->
             <div class="layui-form-item">
                 <i class="layui-icon layui-icon-password fonts" ></i> 
-                <input type="password" name="password"  lay-verify="required|pwd" placeholder="确认密码" autocomplete="off"
+                <input type="password" lay-verify="required|same|pwd" placeholder="确认密码" autocomplete="off"
                     class="layui-input pwod">
             </div>
             <!-- 登录按钮 -->
             <!-- lay-submit 属性控制表单提交-->
             <button  lay-submit class="layui-btn layui-btn-normal layui-btn-fluid" lay-filter="formDemo">注册</button>
-            <!-- 去登录说 -->
+            <!-- 去登录 -->
                 <div class="links">
                     <a href="" id="link-2">已有账号，去登录</a>
                 </div>

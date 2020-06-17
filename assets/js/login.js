@@ -1,7 +1,7 @@
 $(function () {
     // layui是全局对象，通过它可以得到form对象
     var form = layui.form
-    // 基于LayUI自定义表单验证规则
+    // // 基于LayUI自定义表单验证规则
     form.verify({
         // 必须是6-8位字符,不包括空格
         uname: [/^[\S]{6,8}$/, '用户名必须是6-8位字符'],
@@ -15,25 +15,19 @@ $(function () {
             if (!reg.test(value)) {
                 return '密码必须是6位数字'
             }
-        }
-    })
-    // 自定义校验规则
-    form.verify({
-        // 键：值
-        pwd: [/^[\S]{6,12}$/, '密码必须6到12位，且不能出现空格'],
-        samePwd: function (value) {
-            // 1. 通过形参，获取到确认密码框中的值
-            // 2. 通过 jQuery 获取到密码框中的值
-            var pwd = $('.reg-box [name=password]').val()
-            // 3. 进行 if 判断
+        },
+        //验证确认密码必须和原有密码一致
+        same: function (value) {
+            //获取原始密码
+            var pwd = $('.form-2 input[name=password]').val()
             if (value !== pwd) {
-                // return 一个错误消息
-                return '两次的密码不一致！'
+                return '两次输入的密码必须一致'
             }
+
         }
     })
 
-    //注册表单提交事件
+    //登录表单提交事件
     $('#form-reg').on('submit', function (e) {
         //阻止按钮默认跳转事件
         e.preventDefault();
@@ -57,17 +51,21 @@ $(function () {
                 //登录成功,跳转页面到主页面
                 if (backData.status === 0) {
                     //把登录成功的标志存储在客户端
-                    localStorage.setltem('mytoken','backData.token')
+                    localStorage.setItem('mytoken', 'backData.token')
+                    console.log(backData.token);
+                    //跳转到主页面
                     location.href = 'index.html'
                     $('.username').val("")
                     $('.password').val("")
+                }else{
+                    layer.msg(backData.message)
                 };
             },
         });
     });
 
     keyCode13('#form-reg', 'submit')
-    //注册账户事件
+
     $('.links').on('click', function () {
 
     })
@@ -82,7 +80,7 @@ $(function () {
         $('.form-2').hide().prev().show();
     })
 
-    //注册事件
+    //注册表单事件
     $('#form-reg2').on('submit', function (e) {
         //阻止按钮默认跳转事件
         e.preventDefault();
@@ -103,16 +101,18 @@ $(function () {
             } */formData,
             success: function (backData) {
                 console.log(backData);
-                //无论成功还是失败,都要提示
-                alert(backData.message)
-                //登录成功,跳转页面到主页面
                 if (backData.status === 0) {
+                    //登录成功,跳转页面到登录框
                     $('.form-2').hide().prev().show();
                     $('.uname').val("")
                     $('.pwod').val("")
+                    //成功后进行提示
+                    layer.msg(backData.message)
+                } else {
+                    //注册失败
+                    layer.msg(backData.message)
                 };
             },
         });
     });
-
 });
