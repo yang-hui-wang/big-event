@@ -5,6 +5,7 @@
   .icon-tuichu:before {
     font-size: 22px;
   }
+
   .layui-icon-app {
     margin: 0 10px;
   }
@@ -32,4 +33,7 @@
     /* 防止出现滚动条 */
     border: 0;
     /*display: block;*/
+  }
+  .layui-footer {
+    text-align: center;
   }
