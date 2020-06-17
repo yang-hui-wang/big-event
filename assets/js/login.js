@@ -56,6 +56,8 @@ $(function () {
                 console.log(backData);
                 //登录成功,跳转页面到主页面
                 if (backData.status === 0) {
+                    //把登录成功的标志存储在客户端
+                    localStorage.setltem('mytoken','backData.token')
                     location.href = 'index.html'
                     $('.username').val("")
                     $('.password').val("")
