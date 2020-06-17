@@ -43,45 +43,32 @@ $(function () {
             data: formData,
             success: function (res) {
                 // 登录成功后，跳转到主页面
+                // console.log(res);
                 if (res.status === 0) {
                     // 把登录成功的标志位存储在客户端
-                    localStorage.setItem('mytoken', res.token)
-                    // localStorage.removeItem('mytoken')
+                    localStorage.setItem('mytoken', res.token);
                     // 跳转到主页面
                     location.href = './index.html'
+                } else {
+                    layer.msg(res.message)
                 }
             }
         })
     });
-
-    keyCode13('#form-reg', 'submit')
-
-    $('.links').on('click', function () {
-
-    })
-
-    $('#link-1').on('click', function (e) {
-        e.preventDefault();
-        $('.form-2').show().prev().hide();
-    })
-
-    $('#link-2').on('click', function (e) {
-        e.preventDefault();
-        $('.form-2').hide().prev().show();
-    })
-
     //注册表单事件
     $('#form-reg2').on('submit', function (e) {
         //阻止按钮默认跳转事件
         e.preventDefault()
         // 获取表单数据(表单输入域必须提供name属性，name的值必须和接口文档要求一致)
         var formData = $(this).serialize()
+        console.log(formData);
         // 调用接口进行注册
         $.ajax({
             type: 'post',
             url: 'http://ajax.frontend.itheima.net/api/reguser',
             data: formData,
             success: function (res) {
+                console.log(res);
                 if (res.status === 0) {
                     // 注册成功，显示登陆框
                     $('#link-2').click()
@@ -94,6 +81,17 @@ $(function () {
                 }
             }
         })
+    })
+    // keyCode13('#form-reg','submit')
+
+    $('#link-1').on('click', function (e) {
+        e.preventDefault();
+        $('.form-2').show().prev().hide();
+    })
+
+    $('#link-2').on('click', function (e) {
+        e.preventDefault();
+        $('.form-2').hide().prev().show();
     })
 
 });
