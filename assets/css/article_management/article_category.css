@@ -1,0 +1,14 @@
+body{
+    background-color: #f2f3f5;
+}
+.layui-card{
+    margin: 15px;
+}
+.layui-card-header{
+    position: relative;
+}
+#showAdd{
+    position: absolute;
+    right: 16px;
+    top: 6px;
+}
