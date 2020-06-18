@@ -16,4 +16,5 @@ $(function () {
             $('tbody').html(res)
         }
     });
+   
 })

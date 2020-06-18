@@ -15,7 +15,7 @@ $(function () {
         Authorization: localStorage.getItem('mytoken')
       },
       success: function (backData) {
-        console.log(backData);
+        // console.log(backData);
         var res = backData.user_pic;
         res = "http://t.cn/RCzsdCq";
         if (backData.status === 0) {
@@ -33,7 +33,7 @@ $(function () {
   localStorInfo();
 
   $('#logout-btn').click(function () {
-    layer.confirm('你确定退出吗？你退出了还得登录，你想好了吗?', {icon: 3, title:'提示'}, function(index){
+    layer.confirm('你确定退出吗？你退出了还得登录，你想好了吗?', { icon: 3, title: '提示' }, function (index) {
       //do something
       //清除token,跳转登录页
       localStorage.removeItem('mytoken')
@@ -41,6 +41,31 @@ $(function () {
       layer.close(index);
       //跳转登录页
       location.href = './login.html'
-    });   
+    });
   })
+
+  //点击文章类别
+  $('.article').children().eq(0).click(function () {
+    $('#iframe').attr("src", './article_management/article_category.html')
+  });
+  //点击文章列表
+  $('.article').children().eq(1).click(function () {
+    $('#iframe').attr("src", './article_management/article_list.html')
+  });
+  //点击发表文章
+  $('.article').children().eq(2).click(function () {
+    $('#iframe').attr("src", './article_management/article_publish.html')
+  });
+  // 点击基本资料
+  $('.center>.layui-nav-child').children().eq(0).click(function () {
+    $('#iframe').attr("src", './article_management/article_category.html')
+  });
+  // 点击修改头像
+  $('.center>.layui-nav-child').children().eq(1).click(function () {
+    $('#iframe').attr("src", './article_management/article_publish.html')
+  });
+  // 点击修改密码
+  $('.center>.layui-nav-child').children().eq(2).click(function () {
+    $('#iframe').attr("src", './article_management/article_list.html')
+  });
 })

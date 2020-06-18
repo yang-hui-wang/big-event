@@ -8,7 +8,7 @@
     <!-- layui样式 -->
     <link rel="stylesheet" href="../assets/lib/layui/css/layui.css">
     <!-- 自定义样式 -->
-    <link rel="stylesheet" href="../assets/css/article_management/article_category.css">
+    <link rel="stylesheet" href="../assets/css/article/article_category.css">
     <!--  -->
     <link rel="stylesheet" href="../assets/lib/nprogress/nprogress.css">
 
@@ -19,7 +19,7 @@
     <!-- 导入公共配置.js 文件 -->
     <script src="../assets/js/common.js"></script>
     <!-- 导入当前页面.js 文件 -->
-    <script src="../assets/js/article_management/article_category.js"></script>
+    <script src="../assets/js/artice/article_category.js"></script>
     <!-- 1.导入模板引擎 -->
     <script src="../assets/lib/template-web.js"></script>
     <script src="../assets/lib/nprogress/nprogress.js"></script>
@@ -55,34 +55,7 @@
     </div>
 
     <!-- 遮罩层和添加模块 -->
-    <div id="add">
-        <form id="add-form" class="layui-form" style="margin: 15px 30px 0 0">
-            <!-- 第一行：类别名称 -->
-            <div class="layui-form-item">
-                <label class="layui-form-label">类别名称</label>
-                <div class="layui-input-block">
-                    <input type="text" name="name" required lay-verify="required" placeholder="请输入标题" autocomplete="off"
-                        class="layui-input">
-                </div>
-            </div>
-            <!-- 第二行：类别别名 -->
-            <div class="layui-form-item">
-                <label class="layui-form-label">类别别名</label>
-                <div class="layui-input-block">
-                    <input type="text" name="alias" required lay-verify="required" placeholder="请输入别名"
-                        autocomplete="off" class="layui-input">
-                </div>
-            </div>
-            <!-- 第三行：按钮 -->
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认添加</button>
-                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                </div>
-            </div>
-        </form>
-    </div>
-
+ 
     <!-- 2.创建自定义引擎模板 -->
     <!-- 分类下拉框模板 -->
     <script type="text/html" id="tpl-list">
