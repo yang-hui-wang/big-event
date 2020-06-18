@@ -24,7 +24,7 @@ $(function () {
             $('.welcome>div').remove();
           };
           var uname = backData.data.username;
-          $('.layui-nav-item>.welcome>img').after('<i>' + uname + '</i>');
+          $('.layui-nav-item>.welcome>img').after('个人中心');
           $('.layui-side-scroll>.welcome>span').text('欢迎 ' + uname)
         }
       }
