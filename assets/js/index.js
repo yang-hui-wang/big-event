@@ -64,7 +64,7 @@ $(function () {
     $('#iframe').attr("src", './user//setavatar.html')
   });
   // 点击修改密码
-  $('.center>.layui-nav-child').children().eq(2).click(function () {
-    $('#iframe').attr("src", './user/userinfo.html')
-  });
+  // $('.center>.layui-nav-child').children().eq(2).click(function () {
+  //   $('#iframe').attr("src", './user/userinfo.html')
+  // });
 })
