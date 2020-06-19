@@ -15,7 +15,6 @@ $(function () {
         Authorization: localStorage.getItem('mytoken')
       },
       success: function (backData) {
-        console.log(backData);
         var res = backData.user_pic;
         res = "http://t.cn/RCzsdCq";
         if (backData.status === 0) {

@@ -29,7 +29,6 @@ $(function () {
             //请求完成结束进度条
             window.NProgress && window.NProgress.done()
             //处理失败的情况
-            console.log(backData);
             if (backData.responseJSON.status === 1 && backData.responseJSON.message === '身份认证失败！'){
                 //把无效的token清除
                 localStorage.removeItem("mytoken");

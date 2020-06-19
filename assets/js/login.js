@@ -48,7 +48,10 @@ $(function () {
                     // 把登录成功的标志位存储在客户端
                     localStorage.setItem('mytoken', res.token);
                     // 跳转到主页面
-                    // location.href = './index.html'
+                    layer.msg(res.message);
+                    setInterval(function () {
+                        location.href = './index.html'
+                    }, 500);
                 } else {
                     layer.msg(res.message)
                 }
@@ -65,7 +68,7 @@ $(function () {
         // 调用接口进行注册
         $.ajax({
             type: 'post',
-            url: 'api/reguser',
+            url: 'my/userinfo',
             data: formData,
             success: function (res) {
                 console.log(res);
