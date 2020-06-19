@@ -55,7 +55,40 @@
     </div>
 
     <!-- 遮罩层和添加模块 -->
- 
+    <div id="add">
+        <div id="add-form">
+            <div class="form-1">
+                <!-- 表单标题 -->
+                <div class="title">
+                    <img src="./assets/images/login_title.png" alt="">
+                </div>
+                <!-- 表单区域 -->
+                <form class="layui-form" id="form-reg">
+                    <!-- 用户名输入框 -->
+                    <div class="layui-form-item">
+                        <i class="layui-icon layui-icon-username fonts"></i>
+                        <input type="text" name="username" lay-verify="required|uname" placeholder="请输入用户名"
+                            autocomplete="off" class="layui-input username">
+                    </div>
+                    <!-- 密码输入框 -->
+                    <div class="layui-form-item">
+                        <i class="layui-icon layui-icon-password fonts"></i>
+                        <input type="password" name="password" lay-verify="required|pwd" placeholder="请输入密码"
+                            autocomplete="off" class="layui-input password">
+                    </div>
+                    <!-- 登录按钮 -->
+                    <!-- lay-submit 属性控制表单提交-->
+                    <button lay-submit class="layui-btn layui-btn-normal layui-btn-fluid" lay-filter="formDemo"
+                        id="btn1">登录</button>
+                    <!-- 注册链接 -->
+                    <div class="links">
+                        <a href="" id="link-1">去注册账号</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
     <!-- 2.创建自定义引擎模板 -->
     <!-- 分类下拉框模板 -->
     <script type="text/html" id="tpl-list">

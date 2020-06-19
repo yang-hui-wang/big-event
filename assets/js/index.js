@@ -7,7 +7,7 @@ $(function () {
   }
   function localStorInfo() {
     $.ajax({
-      url: 'http://ajax.frontend.itheima.net/my/userinfo',
+      url: 'my/userinfo',
       type: 'get',
       // dataType:'json',
       // data:'',
@@ -15,7 +15,7 @@ $(function () {
         Authorization: localStorage.getItem('mytoken')
       },
       success: function (backData) {
-        // console.log(backData);
+        console.log(backData);
         var res = backData.user_pic;
         res = "http://t.cn/RCzsdCq";
         if (backData.status === 0) {
@@ -46,26 +46,26 @@ $(function () {
 
   //点击文章类别
   $('.article').children().eq(0).click(function () {
-    $('#iframe').attr("src", './article_management/article_category.html')
+    $('#iframe').attr("src", './article/article_category.html')
   });
   //点击文章列表
   $('.article').children().eq(1).click(function () {
-    $('#iframe').attr("src", './article_management/article_list.html')
+    $('#iframe').attr("src", './article/article_list.html')
   });
   //点击发表文章
   $('.article').children().eq(2).click(function () {
-    $('#iframe').attr("src", './article_management/article_publish.html')
+    $('#iframe').attr("src", './article/article_publish.html')
   });
   // 点击基本资料
   $('.center>.layui-nav-child').children().eq(0).click(function () {
-    $('#iframe').attr("src", './article_management/article_category.html')
+    $('#iframe').attr("src", './user/repwd.html')
   });
   // 点击修改头像
   $('.center>.layui-nav-child').children().eq(1).click(function () {
-    $('#iframe').attr("src", './article_management/article_publish.html')
+    $('#iframe').attr("src", './user//setavatar.html')
   });
   // 点击修改密码
   $('.center>.layui-nav-child').children().eq(2).click(function () {
-    $('#iframe').attr("src", './article_management/article_list.html')
+    $('#iframe').attr("src", './user/userinfo.html')
   });
 })
