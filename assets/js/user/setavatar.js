@@ -31,30 +31,29 @@ $(function () {
   })
 
   //4.点击确认按钮,发送ajax,上传文件
-  $('#okbtn').click(function(){
+  $('#okbtn').click(function () {
     //获取裁剪后的图片信息,固定语法
-    var imgurl = $('#image').cropper('getCroppedCanvas',{
-      width : 100,
-      height : 100
+    var imgurl = $('#image').cropper('getCroppedCanvas', {
+      width: 100,
+      height: 100
     })
-    //将裁减后的图片信息转化为base64格式的字符串
-    .toDataURL('image/png')
+      //将裁减后的图片信息转化为base64格式的字符串
+      .toDataURL('image/png')
     //发送ajax请求
     $.ajax({
-      url:'my/update/avatar',
-      type:'POST',
+      url: 'my/update/avatar',
+      type: 'POST',
       // dataType:'json',
-      data:{
-        avatar : imgurl,
+      data: {
+        avatar: imgurl,
       },
-      success: function(backData){
-        if(backData.status === 0){
+      success: function (backData) {
+        if (backData.status === 0) {
           //更新头像成功
           layer.msg(backData.message)
           //更新头像
           //window : 当前窗口
           //parent : 父窗口
-          console.log(window.parent.$.localStorInfo);
           window.parent.$.localStorInfo();
           // window.parent.$('.welcome>img').remove();
           // console.log(window.parent.$('.welcome img').attr('src'));

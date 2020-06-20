@@ -48,10 +48,10 @@ $(function () {
             // dataType:'json',
             data: fd,
             success: function (backData) {
-                if (backData.status !== 0) {
-                    console.log(backData.message);
+                if (backData.status === 0) {
+                    layer.msg(backData.message);
+                    window.parent.$.localStorInfo();
                 }
-                layer.msg(backData.message);
             }
         });
     })
