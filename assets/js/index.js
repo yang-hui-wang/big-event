@@ -15,10 +15,9 @@ $(function () {
       //   Authorization: localStorage.getItem('mytoken')
       // },
       success: function (backData) {
-        console.log(backData);
-        // var name = backData.data.username;
-        // var res = backData.data.user_pic;
-        // var nickname = backData.data.nickname;
+        var name = backData.data.username;
+        var res = backData.data.user_pic;
+        var nickname = backData.data.nickname;
         // res = "http://t.cn/RCzsdCq";
         if (backData.status === 0) {
           $('#nav-username').html(name)
