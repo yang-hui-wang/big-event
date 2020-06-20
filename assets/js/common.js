@@ -1,7 +1,7 @@
 $(function () {
     //通用配置文件
-    var base = 'http://ajax.frontend.itheima.net/'
-
+    // var base = 'http://ajax.frontend.itheima.net/'
+    var base = 'http://www.liulongbin.top:3007/'
     $.ajaxPrefilter(function (option) {
         //形参option是jQuery请求方式配置
         //发送请求之前会触发beforeSend
@@ -29,11 +29,11 @@ $(function () {
             //请求完成结束进度条
             window.NProgress && window.NProgress.done()
             //处理失败的情况
-            if (backData.responseJSON.status === 1 && backData.responseJSON.message === '身份认证失败！'){
+            if (backData.responseJSON.status === 1 && backData.responseJSON.message === '身份认证失败！') {
                 //把无效的token清除
                 localStorage.removeItem("mytoken");
                 //跳转到登录页
-                location.href='./login.html'
+                // location.href = './login.html'
             }
         }
     })

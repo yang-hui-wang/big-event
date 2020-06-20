@@ -11,26 +11,42 @@ $(function () {
       type: 'get',
       // dataType:'json',
       // data:'',
-      headers: {
-        Authorization: localStorage.getItem('mytoken')
-      },
+      // headers: {
+      //   Authorization: localStorage.getItem('mytoken')
+      // },
       success: function (backData) {
-        var res = backData.user_pic;
-        res = "http://t.cn/RCzsdCq";
+        console.log(backData);
+        var name = backData.data.username;
+        var res = backData.data.user_pic;
+        // res = "http://t.cn/RCzsdCq";
         if (backData.status === 0) {
+          $('#nav-username').html(name)
           if (res) {
-            $('.welcome').prepend('<img src="' + res + '" class="layui-nav-img">');
-            $('.welcome>div').remove();
+            //存在头像数据,显示一张图片
+            //删除默认的头像
+            $('#nav-username,#welcome-username').parent()
+              .prev('div')
+              .remove();
+            //添加新的头像
+            $('#nav-username,#welcome-username').parent()
+              .find('img')
+              .remove()
+              .end()
+              .prepend('<img src= "' + res + '"alt="" style="border-radius:50%"/>');
+            // $('#welcome-username').parent()
+            //   .parent()
+            //   .children('div')
+            //   .remove();
           };
-          var uname = backData.data.username;
-          $('.layui-nav-item>.welcome>img').after('个人中心');
-          $('.layui-side-scroll>.welcome>span').text('欢迎 ' + uname)
+        } else {
+
         }
       }
     });
   }
   localStorInfo();
-
+  // 把 localStorInfo添加给$
+  $.localStorInfo = localStorInfo;
   $('#logout-btn').click(function () {
     layer.confirm('你确定退出吗？你退出了还得登录，你想好了吗?', { icon: 3, title: '提示' }, function (index) {
       //do something
@@ -60,9 +76,9 @@ $(function () {
     $('#iframe').attr("src", './user/repwd.html')
   });
   // 点击修改头像
-  $('.center>.layui-nav-child').children().eq(1).click(function () {
-    $('#iframe').attr("src", './user//setavatar.html')
-  });
+  // $('.center>.layui-nav-child').children().eq(1).click(function () {
+  //   $('#iframe').attr("src", './user//setavatar.html')
+  // });
   // 点击修改密码
   // $('.center>.layui-nav-child').children().eq(2).click(function () {
   //   $('#iframe').attr("src", './user/userinfo.html')
